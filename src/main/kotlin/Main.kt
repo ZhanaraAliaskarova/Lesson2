@@ -15,15 +15,13 @@ fun main() {
     val newList = filtered.toList()
     println("new list: $newList")
 
-    val lazyMap = decorations.asSequence().map {
+    val lazyMap2 = decorations.asSequence().filter {it[0] == 'p'}.map {
         println("access: $it")
         it
     }
+    println("-----")
+    println("filtered: ${lazyMap2.toList()}")
 
-    println("lazy: $lazyMap")
-    println("-----")
-    println("first: ${lazyMap.first()}")
-    println("-----")
-    println("all: ${lazyMap.toList()}")
+
 }
 
