@@ -14,4 +14,16 @@ fun main() {
     // force evaluation of the lazy list
     val newList = filtered.toList()
     println("new list: $newList")
+
+    val lazyMap = decorations.asSequence().map {
+        println("access: $it")
+        it
+    }
+
+    println("lazy: $lazyMap")
+    println("-----")
+    println("first: ${lazyMap.first()}")
+    println("-----")
+    println("all: ${lazyMap.toList()}")
 }
+
